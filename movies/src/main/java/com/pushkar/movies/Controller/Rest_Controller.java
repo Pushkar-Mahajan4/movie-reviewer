@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 
 
@@ -26,5 +27,4 @@ public class Rest_Controller {
     private ResponseEntity<Movie> getMovieByID(@PathVariable String id){
         return new ResponseEntity<Movie>(movieService.getMovieByimdbId(id), HttpStatus.OK);
     }
-
 }
