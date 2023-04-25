@@ -18,13 +18,8 @@ public class MovieService {
     }
 
     public Movie getMovieByimdbId(String imdbId){
-
-        List<Movie> movies = movieRepository.findAll();
-        for(Movie movie : movies){
-            if(movie.getImdbId().equals(imdbId)){
-                return movie;
-            }
-        }
-        return null;
+        Optional<Movie> search = movieRepository.findMovieByImdbId(imdbId);
+        Movie result = search.orElse(null);
+        return result;
     }
 }
