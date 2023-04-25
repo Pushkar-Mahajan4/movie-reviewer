@@ -1,11 +1,14 @@
 package com.pushkar.movies.Repository;
 
-import com.pushkar.movies.DAO.MovieDAO;
+import com.pushkar.movies.Model.Movie;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 
 @Repository
-public interface MovieRepository extends MongoRepository<MovieDAO, ObjectId> {
+public interface MovieRepository extends MongoRepository<Movie, ObjectId> {
+    Optional<Movie> findMovieById(String imdbId);
 }

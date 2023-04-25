@@ -1,4 +1,4 @@
-package com.pushkar.movies.DAO;
+package com.pushkar.movies.Model;
 
 
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReviewDAO {
+public class Review {
     @Id
     private ObjectId id;
 

@@ -1,13 +1,11 @@
 package com.pushkar.movies.Controller;
 
-import com.pushkar.movies.DAO.MovieDAO;
+import com.pushkar.movies.Model.Movie;
 import com.pushkar.movies.Repository.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,8 +18,13 @@ public class Rest_Controller {
     private MovieService movieService;
 
     @GetMapping("/getAll")
-    private ResponseEntity<List<MovieDAO>> getAllMovies(){
-            return new ResponseEntity<List<MovieDAO>>(movieService.getAllMovies(), HttpStatus.OK);
+    private ResponseEntity<List<Movie>> getAllMovies(){
+            return new ResponseEntity<List<Movie>>(movieService.getAllMovies(), HttpStatus.OK);
         }
+
+    @GetMapping("/getMovie/{id}")
+    private ResponseEntity<Movie> getMovieByID(@PathVariable String id){
+        return new ResponseEntity<Movie>(movieService.getMovieByimdbId(id), HttpStatus.OK);
+    }
 
 }
