@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
   const [movieData, setMovieData] = useState("");
@@ -10,6 +11,8 @@ function App() {
   }, []);
   return (
     <div className="App">
+      <Navbar />
+      <h1>RATIONAL</h1>
       <p>{console.log(movieData)}</p>
     </div>
   );
