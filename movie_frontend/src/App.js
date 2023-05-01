@@ -4,6 +4,7 @@ import Layout from "./Components/Layout";
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Home from "./Components/home/Home";
+import Header from "./Components/header/Header";
 
 function App() {
   const [movies, setMovies] = useState();
@@ -23,7 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      {console.log(movies)}
+      <Header />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home movies={movies} />} />
