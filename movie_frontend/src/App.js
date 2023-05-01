@@ -1,19 +1,34 @@
 import "./App.css";
+import api from "./api/axiosConfig";
+import Layout from "./Components/Layout";
+import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Navbar from "./Components/Navbar/Navbar";
+import Home from "./Components/home/Home";
 
 function App() {
-  const [movieData, setMovieData] = useState("");
+  const [movies, setMovies] = useState();
+
+  const getMovies = async () => {
+    try {
+      const response = await api.get("/getAll");
+      setMovies(response.data);
+    } catch (error) {
+      console.log(error.printStackTrace());
+    }
+  };
+
   useEffect(() => {
-    fetch("http://127.0.0.1:8080/api/v1/movies/getMovie/tt3915174")
-      .then((response) => response.json())
-      .then((data) => setMovieData(data));
+    getMovies();
   }, []);
+
   return (
     <div className="App">
-      <Navbar />
-      <h1>RATIONAL</h1>
-      <p>{console.log(movieData)}</p>
+      {console.log(movies)}
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Home movies={movies} />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
