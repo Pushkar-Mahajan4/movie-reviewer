@@ -29,10 +29,18 @@ const Header = () => {
               Watch List
             </NavLink>
           </Nav>
-          <Button variant="outline-info" className="me-2">
+          <Button
+            variant="outline-info"
+            className="me-2"
+            style={{ fontSize: "1.5rem" }}
+          >
             Login
           </Button>
-          <Button variant="outline-info" className="me-2">
+          <Button
+            variant="outline-info"
+            className="me-2"
+            style={{ fontSize: "1.5rem" }}
+          >
             Register
           </Button>
         </Navbar.Collapse>

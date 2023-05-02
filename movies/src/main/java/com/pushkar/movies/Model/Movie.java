@@ -19,7 +19,7 @@ public class Movie {
     private String imdbId;
     private String title;
     private String releaseDate;
-    private String trailerlink;
+    private String trailerLink;
 
     public ObjectId getId() {
         return id;
@@ -54,11 +54,11 @@ public class Movie {
     }
 
     public String getTrailerlink() {
-        return trailerlink;
+        return trailerLink;
     }
 
     public void setTrailerlink(String trailerlink) {
-        this.trailerlink = trailerlink;
+        this.trailerLink = trailerlink;
     }
 
     public String getPoster() {

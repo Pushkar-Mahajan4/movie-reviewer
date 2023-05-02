@@ -13,9 +13,7 @@ public class MovieService {
 
     @Autowired
     private MovieRepository movieRepository;
-    public List<Movie> getAllMovies(){
-        return movieRepository.findAll();
-    }
+    public List<Movie> getAllMovies(){ return movieRepository.findAll(); }
 
     public Movie getMovieByimdbId(String imdbId){
         Optional<Movie> search = movieRepository.findMovieByImdbId(imdbId);
