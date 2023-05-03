@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faVideoSlash } from "@fortawesome/free-solid-svg-icons";
+import { faFilm } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -11,8 +11,8 @@ const Header = () => {
   return (
     <Navbar bg="dark" variant="dark" expands="lg">
       <Container fluid>
-        <Navbar.Brand href="/" style={{ color: "gold" }}>
-          <FontAwesomeIcon icon={faVideoSlash} />
+        <Navbar.Brand href="/" style={{ color: "gold", fontSize: "2rem" }}>
+          <FontAwesomeIcon icon={faFilm} style={{ marginRight: "10px" }} />
           Gold
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />

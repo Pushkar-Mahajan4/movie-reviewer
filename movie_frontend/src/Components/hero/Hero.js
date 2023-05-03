@@ -28,7 +28,6 @@ const Hero = ({ movies }) => {
                         <h4>{movie.title}</h4>
                       </div>
                       <div className="movie-button-container">
-                        {console.log(movie.trailerlink)}
                         <Link
                           to={`/trailer/${movie.trailerlink?.substring(
                             movie.trailerlink.length - 11
