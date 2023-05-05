@@ -6,9 +6,12 @@ import { useState, useEffect } from "react";
 import Home from "./Components/home/Home";
 import Header from "./Components/header/Header";
 import Trailer from "./Components/trailer/Trailer";
+import Reviews from "./Components/reviews/Reviews";
 
 function App() {
   const [movies, setMovies] = useState();
+  const [movie, setMovie] = useState();
+  const [reviews, setReviews] = useState();
 
   const getMovies = async () => {
     try {
@@ -16,6 +19,19 @@ function App() {
       setMovies(response.data);
     } catch (error) {
       console.log(error.printStackTrace());
+    }
+  };
+
+  const getMovie = async (movieID) => {
+    try {
+      console.log("getMovie: " + movieID);
+      const response = await api.get(`/getMovie/${movieID}`);
+      const singleMovie = response.data;
+      console.log({ singleMovie });
+      setMovie(singleMovie);
+      setReviews(singleMovie.reviews);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -30,6 +46,17 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home movies={movies} />} />
           <Route path="/trailer/:yID" element={<Trailer />} />
+          <Route
+            path="/reviews/:movieID"
+            element={
+              <Reviews
+                getMovieData={getMovie}
+                movie={movie}
+                reviews={reviews}
+                setReviews={setReviews}
+              />
+            }
+          />
         </Route>
       </Routes>
     </div>
