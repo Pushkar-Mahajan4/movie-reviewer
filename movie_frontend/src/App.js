@@ -27,7 +27,6 @@ function App() {
       console.log("getMovie: " + movieID);
       const response = await api.get(`/getMovie/${movieID}`);
       const singleMovie = response.data;
-      console.log({ singleMovie });
       setMovie(singleMovie);
       setReviews(singleMovie.reviews);
     } catch (error) {
