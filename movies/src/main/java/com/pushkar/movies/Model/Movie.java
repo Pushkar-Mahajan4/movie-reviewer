@@ -21,6 +21,16 @@ public class Movie {
     private String releaseDate;
     private String trailerLink;
 
+    public List<Review> getReviewList() {
+        return reviewList;
+    }
+
+    public void setReviewList(List<Review> reviewList) {
+        this.reviewList = reviewList;
+    }
+
+    private List<Review> reviewList;
+
     public ObjectId getId() {
         return id;
     }
